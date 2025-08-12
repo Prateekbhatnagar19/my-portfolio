@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prateek Bhatnagar | Digital & Technology Solutions | Moradabad</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <!-- FEATURE ADDED: Animate on Scroll Stylesheet -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* 1. Preflight (Tailwind CSS Reset) */
+        *,::before,::after {box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb;}
+        html {line-height: 1.5; -webkit-text-size-adjust: 100%; -moz-tab-size: 4; tab-size: 4; font-family: 'Inter', sans-serif;}
+        body {margin: 0; line-height: inherit;}
+        h1,h2,h3,p,a {margin: 0;}
+        a {color: inherit; text-decoration: inherit;}
+        button {background-color: transparent; background-image: none; padding: 0;}
+        button:focus {outline: 1px dotted; outline: 5px auto -webkit-focus-ring-color;}
+        img, svg, video, canvas, audio, iframe, embed, object {display: block; vertical-align: middle; max-width: 100%; height: auto;}
+        
+        /* 2. Custom Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .scroll-smooth { scroll-behavior: smooth; }
+        .text-justify { text-align: justify; }
+        
+        /* Animated Gradient Background */
+        #home {
+            background: linear-gradient(-45deg, #0f172a, #4f46e5, #7c3aed, #23a6d5);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease-in-out infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Service Icon Animation */
+        @keyframes icon-bounce-spin {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(360deg) scale(1.1);
+            }
+        }
+        .group:hover .service-icon-container {
+            animation: icon-bounce-spin 0.8s ease-in-out;
+        }
+        
+        /* MODIFIED: New unified background for dark sections */
+        #services, #portfolio {
+            position: relative;
+            background-color: #0f172a; /* Dark base color */
+        }
+        #services::before, #portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at top left, rgba(79, 70, 229, 0.4), transparent 30%),
+                              radial-gradient(circle at bottom right, rgba(35, 166, 213, 0.4), transparent 30%);
+            opacity: 0.5;
+            z-index: 0;
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* MODIFIED: About section background image */
+        #about {
+            position: relative;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://i.imgur.com/gcyMh4i.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Creates a nice parallax effect */
+        }
+        #about::before {
+            background-image: none; /* Remove the previous gradient */
+        }
+
+
+        /* Hero Button Effects */
+        .hero-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .hero-btn-primary {
+            background: linear-gradient(45deg, #4f46e5, #7c3aed);
+        }
+        .hero-btn-secondary {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s ease;
+        }
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+        .hero-btn:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* FEATURE ADDED: Premium Hover Glow Effect */
+        .enhanced-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.2), 0 8px 10px -6px rgba(79, 70, 229, 0.1);
+        }
+        
+        /* Utility for clearing floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* 3. Utility Classes */
+        .container { width: 100%; margin-right: auto; margin-left: auto; padding-right: 1.5rem; padding-left: 1.5rem; }
+        @media (min-width: 640px) { .container { max-width: 640px; } }
+        @media (min-width: 768px) { .container { max-width: 768px; } }
+        @media (min-width: 1024px) { .container { max-width: 1024px; } }
+        @media (min-width: 1280px) { .container { max-width: 1280px; } }
+        .fixed { position: fixed; }
+        .top-0 { top: 0; }
+        .left-0 { left: 0; }
+        .right-0 { right: 0; }
+        .z-50 { z-index: 50; }
+        .bg-slate-50 { background-color: #f8fafc; }
+        .bg-slate-100 { background-color: #f1f5f9; }
+        .bg-slate-200 { background-color: #e2e8f0; }
+        .bg-white { background-color: #ffffff; }
+        .bg-white\/80 { background-color: rgba(255, 255, 255, 0.8); }
+        .bg-slate-900 { background-color: #0f172a; }
+        .bg-indigo-50 { background-color: #eef2ff; }
+        .bg-sky-50 { background-color: #f0f9ff; }
+        .bg-emerald-50 { background-color: #ecfdf5; }
+        .bg-yellow-50 { background-color: #fefce8; }
+        .bg-red-50 { background-color: #fef2f2; }
+        .bg-purple-50 { background-color: #faf5ff; }
+        .bg-lime-50 { background-color: #f7fee7; }
+        .bg-orange-50 { background-color: #fff7ed; }
+        .bg-teal-50 { background-color: #f0fdfa; }
+        .bg-rose-50 { background-color: #fff1f2; }
+        .bg-indigo-100 { background-color: #e0e7ff; }
+        .bg-sky-100 { background-color: #e0f2fe; }
+        .bg-emerald-100 { background-color: #d1fae5; }
+        .bg-yellow-100 { background-color: #fef9c3; }
+        .bg-red-100 { background-color: #fee2e2; }
+        .bg-purple-100 { background-color: #f3e8ff; }
+        .bg-lime-100 { background-color: #ecfccb; }
+        .bg-orange-100 { background-color: #ffedd5; }
+        .bg-teal-100 { background-color: #ccfbf1; }
+        .bg-gray-200 { background-color: #e5e7eb; }
+        .bg-blue-100 { background-color: #dbeafe; }
+        .bg-indigo-600 { background-color: #4f46e5; }
+        .hover\:bg-indigo-700:hover { background-color: #4338ca; }
+        .hover\:bg-slate-300:hover { background-color: #cbd5e1; }
+        .text-slate-800 { color: #1e293b; }
+        .text-slate-600 { color: #475569; }
+        .text-slate-900 { color: #0f172a; }
+        .text-slate-500 { color: #64748b; }
+        .text-slate-300 { color: #cbd5e1; }
+        .text-slate-400 { color: #94a3b8; }
+        .text-slate-200 { color: #e2e8f0; }
+        .text-white { color: #ffffff; }
+        .text-indigo-300 { color: #a5b4fc; }
+        .text-indigo-600 { color: #4f46e5; }
+        .text-sky-600 { color: #0284c7; }
+        .text-emerald-600 { color: #059669; }
+        .text-yellow-600 { color: #ca8a04; }
+        .text-red-600 { color: #dc2626; }
+        .text-purple-600 { color: #9333ea; }
+        .text-lime-600 { color: #65a30d; }
+        .text-orange-600 { color: #ea580c; }
+        .text-teal-600 { color: #0d9488; }
+        .text-indigo-800 { color: #3730a3; }
+        .text-sky-800 { color: #0c4a6e; }
+        .text-emerald-800 { color: #065f46; }
+        .text-lime-800 { color: #3f6212; }
+        .text-orange-800 { color: #9a3412; }
+        .text-teal-800 { color: #134e4a; }
+        .text-purple-800 { color: #6b21a8; }
+        .text-gray-800 { color: #1f2937; }
+        .text-blue-800 { color: #1e40af; }
+        .hover\:text-indigo-600:hover { color: #4f46e5; }
+        .hover\:text-indigo-400:hover { color: #818cf8; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-extrabold { font-weight: 800; }
+        .font-medium { font-weight: 500; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-base { font-size: 1rem; line-height: 1.5rem; }
+        .leading-tight { line-height: 1.25; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .flex { display: flex; }
+        .inline-flex { display: inline-flex; }
+        .grid { display: grid; }
+        .block { display: block; }
+        .hidden { display: none; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .justify-between { justify-content: space-between; }
+        .justify-center { justify-content: center; }
+        .gap-4 { gap: 1rem; }
+        .gap-8 { gap: 2rem; }
+        .gap-10 { gap: 2.5rem; }
+        .gap-12 { gap: 3rem; }
+        .gap-y-6 { row-gap: 1.5rem; }
+        .gap-2 { gap: 0.5rem; }
+        .space-x-8 > :not([hidden]) ~ :not([hidden]) { margin-left: 2rem; }
+        .pt-32 { padding-top: 8rem; }
+        .pb-20 { padding-bottom: 5rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .px-8 { padding-left: 2rem; padding-right: 2rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .p-8 { padding: 2rem; }
+        .pb-4 { padding-bottom: 1rem; }
+        .px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
+        .py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-10 { margin-top: 2.5rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-12 { margin-top: 3rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .w-full { width: 100%; }
+        .w-6 { width: 1.5rem; }
+        .h-6 { height: 1.5rem; }
+        .w-12 { width: 3rem; }
+        .h-12 { height: 3rem; }
+        .h-64 { height: 16rem; }
+        .max-w-4xl { max-width: 56rem; }
+        .max-w-3xl { max-width: 48rem; }
+        .max-w-md { max-width: 28rem; }
+        .max-w-2xl { max-width: 42rem; }
+        .max-w-xl { max-width: 36rem; }
+        .max-w-sm { max-width: 24rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-2xl { border-radius: 1rem; }
+        .rounded-full { border-radius: 9999px; }
+        .rounded-md { border-radius: 0.375rem; }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        .shadow-2xl { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+        .hover\:shadow-xl:hover { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        .hover\:shadow-2xl:hover { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+        .backdrop-blur-md { backdrop-filter: blur(12px); }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .transition-shadow { transition-property: box-shadow; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .duration-300 { transition-duration: 300ms; }
+        .transform { transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+        .hover\:-translate-y-2:hover { --tw-translate-y: -0.5rem; transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+        .hover\:scale-105:hover { --tw-scale-x: 1.05; --tw-scale-y: 1.05; transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+        .group:hover .group-hover\:scale-105 { --tw-scale-x: 1.05; --tw-scale-y: 1.05; transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+        .overflow-hidden { overflow: hidden; }
+        .object-cover { object-fit: cover; }
+        .flex-wrap { flex-wrap: wrap; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+        input, textarea { width: 100%; }
+        .placeholder-slate-500::placeholder { color: #64748b; }
+        .border-slate-300 { border-color: #cbd5e1; }
+        .border { border-width: 1px; }
+        .focus\:ring-indigo-500:focus { --tw-ring-color: #6366f1; }
+        .focus\:border-indigo-500:focus { border-color: #6366f1; }
+        .focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; }
+        .focus\:ring-2:focus { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); }
+        .focus\:ring-offset-2:focus { --tw-ring-offset-width: 2px; }
+        .float-right { float: right; }
+        .ml-8 { margin-left: 2rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        @media (min-width: 768px) {
+            .md\:flex { display: flex; }
+            .md\:hidden { display: none; }
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .md\:col-span-2 { grid-column: span 2 / span 2; }
+            .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
+            .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+            .md\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            .md\:flex-row { flex-direction: row; }
+            .md\:text-left { text-align: left; }
+            .md\:mt-0 { margin-top: 0; }
+        }
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header Section -->
+    <!-- FEATURE ADDED: backdrop-blur-md for "frosted glass" effect -->
+    <header id="header" class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo / Name -->
+            <a href="#" class="text-2xl font-bold text-indigo-600">Prateek Bhatnagar</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-slate-600 hover:text-indigo-600 transition-colors">About</a>
+                <a href="#services" class="text-slate-600 hover:text-indigo-600 transition-colors">Services</a>
+                <a href="#portfolio" class="text-slate-600 hover:text-indigo-600 transition-colors">Portfolio</a>
+                <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition-all">Contact Me</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-slate-600 hover:text-indigo-600">About</a>
+            <a href="#services" class="block py-2 text-slate-600 hover:text-indigo-600">Services</a>
+            <a href="#portfolio" class="block py-2 text-slate-600 hover:text-indigo-600">Portfolio</a>
+            <a href="#contact" class="block mt-2 py-2 px-4 text-center bg-indigo-600 text-white rounded-lg">Contact Me</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-20 text-white">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-in" data-aos-duration="1500">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                    Empowering Small/Start Up Businesses and Business Owners with 
+                    <span class="text-indigo-300">Smart Digital/Technology Solutions</span>
+                </h1>
+                
+                <p class="mt-6 text-lg md:text-xl text-slate-200 max-w-3xl mx-auto font-semibold">Greetings = | RAM RAM - HAR HAR MAHADEV |</p>
+                <p class="mt-2 text-lg md:text-xl text-slate-200 max-w-3xl mx-auto">I'm Prateek Bhatnagar, a freelance Digital Marketing and IT professional. I leverage AI, modern tools, and techniques to provide affordable, high-impact services that help local businesses, small businesses, and business owner thrive online, by creating their digital presence.</p>
+                
+                <div class="mt-10 flex justify-center gap-4">
+                    <a href="#portfolio" class="hero-btn hero-btn-primary text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-all transform hover:scale-105">View My Work</a>
+                    <a href="#contact" class="hero-btn hero-btn-secondary text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-all transform hover:scale-105">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20" data-aos="fade-up">
+            <div class="container mx-auto px-6 content-wrapper">
+                <!-- Centered Titles -->
+                <div class="text-center max-w-4xl mx-auto">
+                    <span class="text-indigo-300 font-semibold">ABOUT ME</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Passionate about Technology/Digital, Serving Startup Businesses and Business Owners for Online/Digital Presence, Growth, and Branding.</h2>
+                </div>
+
+                <!-- Main Content with Floated Image -->
+                <div class="mt-12 clearfix">
+                    <img src="https://i.imgur.com/your-profile-image.jpg" alt="Prateek Bhatnagar" class="float-right rounded-2xl shadow-2xl w-full max-w-xs ml-8 mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E2E8F0/475569?text=Image+Not+Found';">
+                    <p class="text-slate-300 text-justify">
+                        I have more than 5 years of experience in multiple domains, names like sales, e-commerce, lead generation, customer relationship, and currently working as a freelance Digital Marketing and IT services. I am a professional who understands professional ethics very well and follows them strictly.
+                    </p>
+                    <p class="mt-4 text-slate-300 text-justify">
+                        I want to help start-up/small businesses, business owners, and service providers grow digitally, take their business and services online, reach the maximum number of people, build their online/digital presence and branding.
+                    </p>
+                    <p class="mt-4 text-slate-300 text-justify">
+                        MCA post-graduate, and saw a huge opportunity to help our local businesses succeed in the digital world. Many powerful tools are now accessible and affordable, but small business owners are often too busy to learn and implement them.
+                    </p>
+                    <p class="mt-4 text-slate-300 text-justify">
+                        My mission is to bridge that gap. I combine my technical knowledge with a deep understanding of our local market to offer services that are not just effective, but also budget-friendly. I believe every business, from a brassware artisan to a local cafe, deserves a chance to shine online.
+                    </p>
+                     <p class="mt-4 text-slate-300 text-justify">
+                        An initiative for supporting Digital Bharat, Vocal for Local, Grow Digital, Atmanirbhar Bharat, Viksit Bharat, and Make in India.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20" data-aos="fade-up">
+            <div class="container mx-auto px-6 content-wrapper">
+                <div class="text-center">
+                    <span class="text-indigo-300 font-semibold">MY SERVICES</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">What I Can Do For You</h2>
+                    <p class="mt-4 text-slate-300 max-w-2xl mx-auto">I offer a range of Digital/IT services tailored for small businesses, using smart automation and free resources to keep costs low.</p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-indigo-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-indigo-100 text-indigo-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Affordable Website Development</h3>
+                        <p class="mt-2 text-slate-600">Get a modern, mobile-friendly portfolio or business website without the high agency costs. Perfect for showcasing your work and attracting customers.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-sky-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-sky-100 text-sky-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Social Media Management</h3>
+                        <p class="mt-2 text-slate-600">I'll manage your Facebook and Instagram presence, creating engaging posts and running targeted local ads to bring more footfall to your shop or service.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-emerald-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-emerald-100 text-emerald-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Local SEO</h3>
+                        <p class="mt-2 text-slate-600">I'll optimize your Google My Business profile and website so that when people in Moradabad search for your products or services, you appear at the top.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-yellow-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-yellow-100 text-yellow-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Basic IT Support</h3>
+                        <p class="mt-2 text-slate-600">From setting up professional email accounts to basic software troubleshooting, I provide on-call IT help so you can focus on your business.</p>
+                    </div>
+                    <!-- Service Card 5 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-red-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-red-100 text-red-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L16.732 3.732z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Content Creation</h3>
+                        <p class="mt-2 text-slate-600">I use AI tools to help write engaging blog posts for your website or compelling descriptions for your products, saving you time and effort.</p>
+                    </div>
+                     <!-- Service Card 6 -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-purple-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-purple-100 text-purple-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3h3m-3 16h3m-3-3h3m-3-3h3m-3-3h3" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">AI-Powered Automation</h3>
+                        <p class="mt-2 text-slate-600">Let's automate simple tasks like customer replies or social media posting, giving you back valuable time to focus on your craft.</p>
+                    </div>
+                     <!-- Service Card 7 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-lime-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-lime-100 text-lime-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0m5-2V5a2 2 0 00-2-2H2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2v-5m2 4h4a2 2 0 002-2v-1a2 2 0 00-2-2H14m2 4h4m-2-4h4" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Graphic Designing</h3>
+                        <p class="mt-2 text-slate-600">Eye-catching logos, brochures, social media graphics, and other visual assets to strengthen your brand identity.</p>
+                    </div>
+                    <!-- Service Card 8 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-orange-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-orange-100 text-orange-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M15 13l-3-3m2 11l-3-3" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Application Development</h3>
+                        <p class="mt-2 text-slate-600">Custom-built mobile (Android/iOS) and web applications tailored to your specific business needs and workflows.</p>
+                    </div>
+                    <!-- Service Card 9 -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-teal-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
+                        <div class="service-icon-container bg-teal-100 text-teal-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-9-2V4c0-1.103-.897-2-2-2 0 0-1.995 0-1.995 0a18.019 18.019 0 01-2.153 4m12.032 5a17.999 17.999 0 01-3.216-5m3.216 5l-3.216-9m0 0v-2m7-4h1.002m-9.998 9h-.001M3 12H13m-3 7a2 2 0 11-4 0m4-7v7m-7 7a2 2 0 11-4 0m3-7v7" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mt-6">Software Development</h3>
+                        <p class="mt-2 text-slate-600">Creation of custom software solutions to automate tasks, improve efficiency, and solve specific business challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-20" data-aos="fade-up">
+            <div class="container mx-auto px-6 content-wrapper">
+                <div class="text-center">
+                    <span class="text-indigo-300 font-semibold">MY WORK</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Projects I Worked On</h2>
+                    <p class="mt-4 text-slate-300 max-w-2xl mx-auto">Here are some projects I worked on, as Digital Marketing and IT interconnected.</p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <a href="https://www.fuelitonline.com" target="_blank" rel="noopener noreferrer" class="block bg-lime-50 rounded-2xl shadow-xl overflow-hidden group transition-all transform hover:-translate-y-2 enhanced-hover duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold">Fuelit Online</h3>
+                            <p class="mt-2 text-slate-600">Gained hands-on experience at a digital marketing company as an intern.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Digital Marketing</span>
+                                <span class="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Internship</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.admissionshala.com" target="_blank" rel="noopener noreferrer" class="block bg-indigo-50 rounded-2xl shadow-xl overflow-hidden group transition-all transform hover:-translate-y-2 enhanced-hover duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold">AdmissionShala</h3>
+                            <p class="mt-2 text-slate-600">An educational consultation portal for colleges and universities across India.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">WordPress</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-sm font-medium px-2.5 py-0.5 rounded-full">SEO</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.asianatimes.com" target="_blank" rel="noopener noreferrer" class="block bg-rose-50 rounded-2xl shadow-xl overflow-hidden group transition-all transform hover:-translate-y-2 enhanced-hover duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold">AsianaTimes</h3>
+                            <p class="mt-2 text-slate-600">A dynamic and engaging blogging news portal with a focus on timely content.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">WordPress</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-sm font-medium px-2.5 py-0.5 rounded-full">SEO</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.indiainsight.com" target="_blank" rel="noopener noreferrer" class="block bg-orange-50 rounded-2xl shadow-xl overflow-hidden group transition-all transform hover:-translate-y-2 enhanced-hover duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold">IndiaInsight.com</h3>
+                            <p class="mt-2 text-slate-600">Managed the content strategy, writing and publishing insightful articles and blogs.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Content Creation</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Blogging</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://multilingualimagetexttranslator.netlify.app" target="_blank" rel="noopener noreferrer" class="block bg-teal-50 rounded-2xl shadow-xl overflow-hidden group transition-all transform hover:-translate-y-2 enhanced-hover duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold">Multilingual Image Text Translator</h3>
+                            <p class="mt-2 text-slate-600">A web app demonstrating modern development and database management.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Full Stack</span>
+                                 <span class="bg-slate-200 text-slate-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Web App</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="bg-purple-50 rounded-2xl shadow-xl overflow-hidden group transition-all transform hover:-translate-y-2 enhanced-hover duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold">Portfolio Website</h3>
+                            <p class="mt-2 text-slate-600">Designed and developed this personal portfolio from scratch, focusing on a clean UI/UX and responsive design.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="bg-indigo-100 text-indigo-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Full Stack</span>
+                                <span class="bg-orange-100 text-orange-800 text-sm font-medium px-2.5 py-0.5 rounded-full">HTML & CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-slate-900 text-white" data-aos="fade-up">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold">Willing to Launch Your Business Online/Digital, Without any Hassle?</h2>
+                    <p class="mt-4 text-slate-300 max-w-2xl mx-auto">Let's have a no-pressure chat about your goals. I'm here to help. Drop me a message or give me a call!</p>
+                </div>
+                <div class="mt-12 max-w-xl mx-auto">
+                    <!-- FEATURE MODIFIED: Contact form is now functional. -->
+                    <!-- IMPORTANT: Go to formspree.io, create a form, and replace YOUR_UNIQUE_ID_HERE with your own. -->
+                    <form id="contact-form" method="POST" action="https://formspree.io/f/YOUR_UNIQUE_ID_HERE">
+                        <div id="form-container" class="grid grid-cols-1 gap-y-6">
+                            <div>
+                                <label for="name" class="sr-only">Full name</label>
+                                <input type="text" name="name" id="name" autocomplete="name" required class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 text-slate-900 focus:ring-indigo-500 focus:border-indigo-500 border-slate-300 rounded-md" placeholder="Full name">
+                            </div>
+                            <div>
+                                <label for="email" class="sr-only">Email</label>
+                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 text-slate-900 focus:ring-indigo-500 focus:border-indigo-500 border-slate-300 rounded-md" placeholder="Email address">
+                            </div>
+                            <div>
+                                <label for="phone" class="sr-only">Phone</label>
+                                <input type="tel" name="phone" id="phone" autocomplete="tel" class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 text-slate-900 focus:ring-indigo-500 focus:border-indigo-500 border-slate-300 rounded-md" placeholder="Phone number">
+                            </div>
+                            <div>
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="block w-full shadow-sm py-3 px-4 placeholder-slate-500 text-slate-900 focus:ring-indigo-500 focus:border-indigo-500 border border-slate-300 rounded-md" placeholder="Tell me a little about your business and your goals..."></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="success-message" class="hidden mt-6 p-4 text-center bg-emerald-100 text-emerald-800 rounded-md">
+                        Thank you for your message! I will get back to you shortly.
+                    </div>
+                    <div class="mt-8 text-center text-slate-400">
+                        <p>Or reach me directly at:</p>
+                        <p class="mt-2 font-semibold text-slate-200">Phone: <a href="tel:+917906638829" class="hover:text-indigo-400">+91 79066 38829</a></p>
+                        <p class="mt-2 font-semibold text-slate-200">WhatsApp: <a href="https://wa.me/91706518185" class="hover:text-indigo-400">+91 70651 8185</a></p>
+                        <p class="mt-2 font-semibold text-slate-200">Email: <a href="mailto:prateekbhatnagar07@gmail.com" class="hover:text-indigo-400">prateekbhatnagar07@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-slate-500">&copy; 2025 Prateek Bhatnagar. All Rights Reserved.</p>
+                <p class="text-slate-500 mt-4 md:mt-0">Proudly Serving Businesses For Online/Digital Presence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FEATURE ADDED: Animate on Scroll Javascript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Animation speed
+        once: true,    // Animation happens only once
+      });
+    </script>
+    
+    <!-- Your existing Javascript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const allLinks = document.getElementsByTagName('a');
+        for (let link of allLinks) {
+            // Check if the link is for an internal section before closing the menu
+            if (link.href && link.href.includes('#')) {
+                link.addEventListener('click', () => {
+                    // Only close if the mobile menu is actually open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
+        }
+        
+        // Header shadow on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Contact Form Submission
+        // This script is mostly for show now, as Formspree handles the submission.
+        // It provides a nice success message without needing a separate "thank you" page.
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(event) {
+            // We don't prevent the default submission anymore, so Formspree can work.
+            // You can add more advanced JS here later if needed.
+        });
+    </script>
+</body>
+</html>
