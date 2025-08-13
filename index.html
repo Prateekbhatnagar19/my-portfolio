@@ -75,7 +75,7 @@
             right: 0;
             bottom: 0;
             background-image: radial-gradient(circle at top left, rgba(79, 70, 229, 0.4), transparent 30%),
-                              radial-gradient(circle at bottom right, rgba(35, 166, 213, 0.4), transparent 30%);
+                             radial-gradient(circle at bottom right, rgba(35, 166, 213, 0.4), transparent 30%);
             opacity: 0.5;
             z-index: 0;
         }
@@ -391,23 +391,29 @@
                 </div>
 
                 <!-- Main Content with Floated Image -->
-                <div class="mt-12 clearfix">
-                    <img src="profile-photo.jpg" alt="Prateek Bhatnagar" class="float-right rounded-2xl shadow-2xl w-full max-w-xs ml-8 mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E2E8F0/475569?text=Image+Not+Found';">
-                    <p class="text-slate-300 text-justify">
-                        I have more than 5 years of experience in multiple domains, names like sales, e-commerce, lead generation, customer relationship, and currently working as a freelance Digital Marketing and IT services. I am a professional who understands professional ethics very well and follows them strictly.
-                    </p>
-                    <p class="mt-4 text-slate-300 text-justify">
-                        I want to help start-up/small businesses, business owners, and service providers grow digitally, take their business and services online, reach the maximum number of people, build their online/digital presence and branding.
-                    </p>
-                    <p class="mt-4 text-slate-300 text-justify">
-                        MCA post-graduate, and saw a huge opportunity to help our local businesses succeed in the digital world. Many powerful tools are now accessible and affordable, but small business owners are often too busy to learn and implement them.
-                    </p>
-                    <p class="mt-4 text-slate-300 text-justify">
-                        My mission is to bridge that gap. I combine my technical knowledge with a deep understanding of our local market to offer services that are not just effective, but also budget-friendly. I believe every business, from a brassware artisan to a local cafe, deserves a chance to shine online.
-                    </p>
-                     <p class="mt-4 text-slate-300 text-justify">
-                        An initiative for supporting Digital Bharat, Vocal for Local, Grow Digital, Atmanirbhar Bharat, Viksit Bharat, and Make in India.
-                    </p>
+                <div class="mt-12 flex flex-col md:flex-row items-center gap-12">
+                    <!-- Image Container -->
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-indigo-600 flex-shrink-0">
+                        <!-- The image will fill this container -->
+                        <img src="profile-photo.jpg" alt="Prateek Bhatnagar" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left md:text-justify">
+                        <p class="text-slate-300">
+                            I have more than 5 years of experience in multiple domains, including sales, e-commerce, lead generation, customer relationship, and currently working as a freelance Digital Marketing and IT services. I am a professional who understands professional ethics very well and follows them strictly.
+                        </p>
+                        <p class="mt-4 text-slate-300">
+                            I want to help start-up/small businesses, business owners, and service providers grow digitally, take their business and services online, reach the maximum number of people, build their online/digital presence and branding.
+                        </p>
+                        <p class="mt-4 text-slate-300">
+                            I am an MCA post-graduate and saw a huge opportunity to help our local businesses succeed in the digital world. Many powerful tools are now accessible and affordable, but small business owners are often too busy to learn and implement them.
+                        </p>
+                        <p class="mt-4 text-slate-300">
+                            My mission is to bridge that gap. I combine my technical knowledge with a deep understanding of our local market to offer services that are not just effective, but also budget-friendly. I believe every business, from a brassware artisan to a local cafe, deserves a chance to shine online.
+                        </p>
+                        <p class="mt-4 text-slate-300">
+                            An initiative for supporting Digital Bharat, Vocal for Local, Grow Digital, Atmanirbhar Bharat, Viksit Bharat, and Make in India.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -485,7 +491,7 @@
                         <h3 class="text-xl font-bold mt-6">Application Development</h3>
                         <p class="mt-2 text-slate-600">Custom-built mobile (Android/iOS) and web applications tailored to your specific business needs and workflows.</p>
                     </div>
-                    <!-- Service Card 9 -->
+                     <!-- Service Card 9 -->
                     <div data-aos="fade-up" data-aos-delay="300" class="bg-teal-50 p-8 rounded-2xl shadow-lg group enhanced-hover transition-all duration-300">
                         <div class="service-icon-container bg-teal-100 text-teal-600 rounded-full h-12 w-12 flex items-center justify-center transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-9-2V4c0-1.103-.897-2-2-2 0 0-1.995 0-1.995 0a18.019 18.019 0 01-2.153 4m12.032 5a17.999 17.999 0 01-3.216-5m3.216 5l-3.216-9m0 0v-2m7-4h1.002m-9.998 9h-.001M3 12H13m-3 7a2 2 0 11-4 0m4-7v7m-7 7a2 2 0 11-4 0m3-7v7" /></svg>
@@ -679,4 +685,3 @@
     </script>
 </body>
 </html>
-
